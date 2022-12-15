@@ -23,8 +23,11 @@ void  MainWindow::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
-        dragPosition = event->globalPos() - frameGeometry().topLeft();
-        event->accept();
+        if (!maximized)
+        {
+            dragPosition = event->globalPos() - frameGeometry().topLeft();
+            event->accept();
+        }
     }
 }
 
